@@ -1,7 +1,10 @@
+import java.util.PriorityQueue;
+
 public class Test {
     public static void main(String[] args) {
-        for (int i = 10; i < 5; i++) {
-            System.out.println(i);
-        }
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        q.offer(5);
+        int a = q.peek();
+        System.out.println(a);
     }
 }
