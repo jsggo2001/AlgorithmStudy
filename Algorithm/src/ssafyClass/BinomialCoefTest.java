@@ -1,5 +1,8 @@
+package ssafyClass;
+
 import java.util.Scanner;
 
+// 이항 계수 구하기, 파스칼의 삼각형
 public class BinomialCoefTest {
 
     public static void main(String[] args) {
@@ -18,3 +21,8 @@ public class BinomialCoefTest {
         System.out.println(B[N][K]);
     }
 }
+
+/*
+4 2
+answer : 6
+ */
