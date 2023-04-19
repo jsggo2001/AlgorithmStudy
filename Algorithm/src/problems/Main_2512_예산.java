@@ -7,8 +7,9 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main_2512_예산 {
-    static int n, total;
     static int[] list;
+    static int n, x;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
@@ -17,30 +18,36 @@ public class Main_2512_예산 {
         for (int i = 0; i < n; i++) {
             list[i] = Integer.parseInt(st.nextToken());
         }
-        total = Integer.parseInt(br.readLine());
+        x = Integer.parseInt(br.readLine());
+
         Arrays.sort(list);
 
         int start = 0;
         int end = list[n - 1] + 1;
         int mid = 0;
+        int result = 0;
         while (start < end) {
-
             mid = (start + end) / 2;
-            if (checkMid(mid) > total) {
+            result = check(mid);
+            if(result > x) {
                 end = mid;
             } else {
                 start = mid + 1;
             }
-
         }
-        System.out.println(start - 1);
+//        System.out.println(start + " " + end + " " + mid + " " + result);
+        System.out.println(end - 1);
     }
 
-    private static int checkMid(int mid) {
-        int temp = 0;
+    private static int check(int mid) {
+        int result = 0;
         for (int i = 0; i < n; i++) {
-            temp += Math.min(mid , list[i]);
+            if (list[i] >= mid) {
+                result += mid;
+            } else {
+                result += list[i];
+            }
         }
-        return temp;
+        return result;
     }
 }
